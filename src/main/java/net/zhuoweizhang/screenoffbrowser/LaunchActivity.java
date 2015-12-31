@@ -27,6 +27,7 @@ public class LaunchActivity extends Activity implements TextView.OnEditorActionL
 	private void launchBrowser(String url) {
 		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url), this, BrowserActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
 	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
