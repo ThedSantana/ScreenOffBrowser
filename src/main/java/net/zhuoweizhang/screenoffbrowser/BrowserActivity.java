@@ -73,15 +73,18 @@ public class BrowserActivity extends Activity {
         //if (intent.hasExtra(Intent.EXTRA_TITLE)) {
         //    setTitle(intent.getStringExtra(Intent.EXTRA_TITLE));
         //}
-		String theUrl = intent.getStringExtra(Intent.EXTRA_TEXT);
-		if (theUrl == null) {
-			finish();
-			return; // WHAT
-		}
+        String theUrl = null;
+        if (intent.getAction().equals(Intent.ACTION_SEND)) {
+            theUrl = intent.getStringExtra(Intent.EXTRA_TEXT);
+        } else {
+            theUrl = String.valueOf(intent.getData());
+        }
+        if (theUrl == null) {
+            finish();
+            return; // WHAT
+        }
 
-		mWebView.loadUrl(theUrl);
-
-        //mWebView.loadUrl(String.valueOf(intent.getData()));
+        mWebView.loadUrl(theUrl);
     }
 
     @Override

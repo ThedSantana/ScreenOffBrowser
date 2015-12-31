@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ScreenOffBrowser</string>
+    <string name="enter_address">URL address</string>
+    <string name="load_address_from_clipboard">Load address from clipboard</string>
 </resources>

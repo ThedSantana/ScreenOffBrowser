@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_address"
+        android:imeOptions="actionGo"
+        android:inputType="textUri"
+        android:singleLine="true"
+        android:lines="1"/>
+    <Button android:text="@string/load_address_from_clipboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pastePressed"/>
+
+</LinearLayout>
