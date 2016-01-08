@@ -76,6 +76,22 @@ public class BrowserActivity extends Activity {
         s.setDefaultTextEncodingName("utf-8");
 
         final Intent intent = getIntent();
+        handleIntent(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mWebView.destroy();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
         //if (intent.hasExtra(Intent.EXTRA_TITLE)) {
         //    setTitle(intent.getStringExtra(Intent.EXTRA_TITLE));
         //}
@@ -91,12 +107,6 @@ public class BrowserActivity extends Activity {
         }
 
         mWebView.loadUrl(theUrl);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mWebView.destroy();
     }
 
     private class ChromeClient extends WebChromeClient {
