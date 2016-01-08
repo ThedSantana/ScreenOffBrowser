@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,10 +62,15 @@ public class BrowserActivity extends Activity {
         s.setUseWideViewPort(true);
         s.setSupportZoom(true);
         s.setBuiltInZoomControls(true);
-        s.setDisplayZoomControls(false);
+        if (Build.VERSION.SDK_INT >= 11) {
+            s.setDisplayZoomControls(false);
+        }
         s.setSavePassword(true);
         s.setSaveFormData(true);
         s.setBlockNetworkLoads(false);
+		if (Build.VERSION.SDK_INT >= 17) {
+            s.setMediaPlaybackRequiresUserGesture(false);
+        }
 
         s.setJavaScriptEnabled(true);
         s.setDefaultTextEncodingName("utf-8");
